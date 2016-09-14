@@ -30,6 +30,11 @@ ws.on('data', function(data) {
 
 //These have to be available to each function
 var socketURI = 'ws://ws.blockchain.info:8335/inv';
+// var socketURI = 'ws://localhost:4000';
+
+// array to keep track of our socket, so we can access and close
+// it later when we log out
+var sockets = [];
 var bucketCount = 0;
 var sumIn = 0;
 var firstBool = true;
@@ -148,7 +153,7 @@ var initGraph = function (prefs) {
     } else {
 
       //Add to volume data
-      console.log(sumIn);
+      // console.log(sumIn);
       volumeData.push({
         btc: sumIn,
         date: data.time
@@ -162,7 +167,7 @@ var initGraph = function (prefs) {
         } else {
           var shownData = volumeData;
         }
-        console.log('MaxLen: ', maxLen, shownData);
+        // console.log('MaxLen: ', maxLen, shownData);
         update(shownData, 3000);
       }
 
@@ -234,6 +239,7 @@ var initGraph = function (prefs) {
 
     };
 
+    sockets.push(bitsocket);
   };
 
   initSocket();

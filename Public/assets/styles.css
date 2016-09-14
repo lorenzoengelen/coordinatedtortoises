@@ -57,7 +57,8 @@ svg {
 }
 
 .label {
-  margin-left: 15px;
+  position: absolute;
+  margin-left: 27px;
 }
 
 .graticule {
@@ -75,5 +76,15 @@ svg {
   fill: none;
   stroke: #fff;
   stroke-width: .5px;
+}
+
+/* NAV BAR STYLING */
+
+.navbar li {
+  cursor: pointer;
+}
+
+.nav li {
+  cursor: pointer;
 }
 
