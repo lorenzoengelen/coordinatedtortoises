@@ -9,7 +9,7 @@ window.histPriceData = {};
 
 //query CoinDesk API for data, render data in historical data component
 //this is called when user clicks on component
-var getHistoricalPriceData = function(){
+var getHistoricalPriceData = function() {
   $.ajax({
       url: 'http(s)://api.coindesk.com/v1/bpi/currentprice.json',
       method: 'GET',
