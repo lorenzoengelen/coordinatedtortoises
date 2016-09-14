@@ -134,35 +134,36 @@ class App extends React.Component {
     this.props.graph.updateRes(res);
   }
 
+  logout() {
+    console.log('Closing websocket connections on logout ... ');
+    sockets.forEach( socket => { socket.close(); });
+  }
+
   //Renders the graph to the page
   //Along with the buttons which define preferences
   render() {
     return (
       <div className="target">
-        <nav className='navbar navbar-default'>
-          <div className='container-fluid'>
-            <div className='navbar-header'>
-              <a className='navbar-brand' href='https://www.youtube.com/watch?v=KmtzQCSh6xk' target='_blank'>CRYPTO TRACKERRRR</a>
+        <NavBar logout={this.logout} savePrefs={this.savePrefs.bind(this)} synced={this.synced.bind(this)} syncState={this.state.synced} />
+        
+        <div className="col-md-4">
+          <div className="panel panel-primary height-full">
+            <div className="panel-heading"> Your Crypto-currency Dashboard</div>
+            <div className="panel-body">
+              <TxMaker />
+              <div className="btn-group-vertical" role="group" aria-label="...">
+                <span className="text"> 
+                  Try interacting with the ticker graphs on the right! In your account, you can customize your 
+                  dashboard view any way you like, and save those preferences so that you see them each time you log in. 
+                </span>
+              </div>
             </div>
-
-            <ul className='nav navbar-nav'>
-              <li className="active"><a href="/#">Home</a></li>
-              <li><a href="#">LOL THIS DOESN'T</a></li> 
-              <li><a href="#">LINK TO ANYTHING</a></li>
-            </ul>
-
-            <ul className="nav navbar-nav navbar-right">
-              <li>
-                <a onClick={ () => { this.savePrefs(this.synced.bind(this)); }}>SAVE PREFS</a>
-                <span className={this.syncState ? 'label label-success' : 'hide'}>Success</span>
-              </li>
-              <li><a onClick={ () => { window.location = '/login'; console.log('wtf'); }}>LOGOUT &rarr;</a></li>   
-            </ul>
-          </div>
-        </nav>
-        <div className="col-md-4">    
-          <NavBar logout={this.logout} savePrefs={this.savePrefs.bind(this)} synced={this.synced.bind(this)} syncState={this.state.synced} />
+            <div className="panel-footer">
+              Made at Hack Reactor by Nick, Pete, Clarabelle, and Julian
+            </div>
+          </div>    
         </div>
+
         <div className="col-md-8">    
           <Main currencies={this.props.currencies} currencyState={this.state.currency.text} resState={this.state.resolution.text} currHandler={this.currencyHandler.bind(this)} resHandler={this.resHandler.bind(this)}/>
           <WorldMap />
