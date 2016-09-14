@@ -2,8 +2,13 @@ var skt = require('../workers/bcSocket.js');
 var server = require('../workers/serverSocket.js');
 var geo = require('geo-from-ip');
 
+var blockchain = {
+  uri: 'wss://ws.blockchain.info/inv',
+  options: {'op': 'unconfirmed_sub'}
+};
+
 // create a new blockchain websocket
-var ws = new skt.ws(skt.url);
+var ws = new skt.ws(blockchain.uri);
 
 // transform data from blockchain
 var clean = function(transaction) {
@@ -30,7 +35,7 @@ var clean = function(transaction) {
 };
 
 // subscribe to new transactions
-ws.open(ws.options.newTransactions, function() {
+ws.open(blockchain.options, function() {
   console.log(ws.state() + ' to blockchain socket and subscribing to new transactions');
 });
 
@@ -40,6 +45,7 @@ ws.getData(function(data, flags) {
   console.log(data);
 
   var transaction = clean(JSON.parse(data).x);
+  console.log(transaction);
 
   server.broadcast(JSON.stringify(transaction));
 });
