@@ -78,6 +78,27 @@ svg {
   stroke-width: .5px;
 }
 
+/* LOGIN/SIGNUP STYLING */
+.loginWrapper, .signupWrapper {
+}
+.loginContainer, .signupContainer {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.loginUsername, .signupUsername {
+  margin-bottom: 5px;
+}
+
+.loginPassword, .signupPassword {
+  margin-bottom: 5px;
+}
+
+.loginSubmit, .signupSubmit {
+}
+
+/* SIGNUP STYLING */
+
 /* NAV BAR STYLING */
 
 .navbar li {

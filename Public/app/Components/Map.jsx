@@ -15,6 +15,6 @@ class WorldMap extends React.Component {
     );
   }
 
-};
+}
 
 window.WorldMap = WorldMap;

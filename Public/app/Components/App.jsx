@@ -32,7 +32,7 @@ class App extends React.Component {
 
     //Set state must be async? When passing this.state instead of data it the old defaults
     this.getPrefs((data) => {
-      console.log(JSON.parse(data));
+      // console.log(JSON.parse(data));
       this.setState(JSON.parse(data));
       this.props.graph.init(JSON.parse(data));
     });
