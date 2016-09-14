@@ -52,7 +52,12 @@ wss.newConnection(function(ws) {
   var tenMinutesAgo = Date.now() - 60 * 10 * 1000;
 
   db.readHistoricalData('bitcoinData', tenMinutesAgo, function(err, results) {
-    ws.send(JSON.stringify(results));
+    if (err) {
+      console.log(err);
+    } else if (ws.readyState === ws.OPEN) {
+      ws.send(JSON.stringify(results));
+    }
+    console.log(ws.readyState);
   });
 
 });

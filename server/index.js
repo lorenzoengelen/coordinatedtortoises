@@ -81,9 +81,9 @@ app.use(express.static('Public'));
 
 //find a pref as soon as log in, send them back to show on page
 app.get('/users/preferences', restrict, function(req, res) {
-  console.log('Inside get route to prefs', req.session.user);
+  // console.log('Inside get route to prefs', req.session.user);
   db.findUserByUsername(req.session.user, function(user) {
-    console.log('Found users prefs: ', user.preferences);
+    // console.log('Found users prefs: ', user.preferences);
     res.status(200).send(JSON.stringify(user.preferences));
   });
 });
@@ -91,9 +91,9 @@ app.get('/users/preferences', restrict, function(req, res) {
 //update user's pref
 app.post('/users/preferences', restrict, function(req, res) {
   //Note: this is hacky... try to fix this next team!
-  console.log('Saving prefs now: ', Object.keys(req.body)[0]);
+  // console.log('Saving prefs now: ', Object.keys(req.body)[0]);
   db.savePref(req.session.user, Object.keys(req.body)[0], function(data) {
-    console.log(data);
+    // console.log(data);
     res.status(200).send();
   });
 });
