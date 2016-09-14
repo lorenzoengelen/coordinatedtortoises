@@ -1,5 +1,8 @@
 //These have to be available to each function
 var socketURI = 'ws://localhost:4000';
+// array to keep track of our socket, so we can access and close
+// it later when we log out
+var sockets = [];
 var bucketCount = 0;
 var sumIn = 0;
 var firstBool = true;
@@ -203,6 +206,7 @@ var initGraph = function (prefs) {
 
     };
 
+    sockets.push(bitsocket);
   };
 
   initSocket();
