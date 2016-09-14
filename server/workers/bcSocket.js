@@ -1,6 +1,7 @@
 var WebSocket = require('ws');
 var events = require('events');
-var bcSocketUrl = 'wss://ws.blockchain.info/inv';
+
+var gdaxURI = 'wss://ws-feed.gdax.com';
 
 // creates a new class called BitCoinWebSocket
 var BitCoinWebSocket = function(url) {
@@ -17,17 +18,6 @@ var BitCoinWebSocket = function(url) {
   this._on = function(msg, args) {
     WebSocket.prototype.on.call(this, msg, args);
   };
-
-  // subscribing options
-  this.options = {
-    newTransactions: {'op': 'unconfirmed_sub'},           // unconfirmed transactions
-    newBlocks: {'op': 'blocks_sub'},                      // new blocks
-    debugOP: {'op': 'ping_block'},                        // debugging OPs
-    newestBlock: {'op': 'ping_tx'},                       // responds with the latest block
-    ping: {'op': 'ping'},                                 // prevent connection from closing        
-    subscribeToAddress: {'op':'addr_sub', 'addr': null}   // specific wallet address
-  };
-
 };
 
 BitCoinWebSocket.prototype = Object.create(WebSocket.prototype);
@@ -81,7 +71,6 @@ BitCoinWebSocket.prototype.send = function(data, options, cb) {
 };
 
 module.exports = {
-  ws: BitCoinWebSocket,
-  url: bcSocketUrl,
+  ws: BitCoinWebSocket
 };
 

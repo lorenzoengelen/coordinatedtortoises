@@ -7,8 +7,10 @@ var session = require('express-session');
 var path = require('path');
 var helpers = require('./paycoin/bitcoinHelpers.js');
 
-//var pete = require('./workers/serverSocket.js');
-var connect = require('./utils/connect.js');
+// SOCKETS
+var blockchain = require('./utils/blockchain.js');
+var gdax = require('./utils/gdax.js');
+
 var rates = require('./workers/exchangeRates.js');
 var helpers = require('./paycoin/bitcoinHelpers.js');
 
