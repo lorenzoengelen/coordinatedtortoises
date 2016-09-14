@@ -26,7 +26,6 @@ class App extends React.Component {
     };
   }
 
-
   //componenetDidMount is called once for the very first render
   componentDidMount() {
     console.log('It mounted: ', this.props);
@@ -41,6 +40,7 @@ class App extends React.Component {
 
   //Used to visually display a successful save
   synced() {
+    console.log(this);
     this.setState({
       synced: true
     });
@@ -59,15 +59,16 @@ class App extends React.Component {
 
   //AJAX Methods
   savePrefs(callback) {
-    console.log('Saving prefs now', this.state);
-
     var context = this;
 
     $.ajax({
       url: 'http://localhost:3000/users/preferences',
       method: 'POST',
       data: JSON.stringify(this.state),
-      success: (data) => callback(data),
+      success: (data) => {
+        callback(data);
+        console.log('Prefs saved!');
+      },
       error: (error) => console.log('An error occurred!: ', error)
     });
   }
@@ -133,12 +134,32 @@ class App extends React.Component {
     this.props.graph.updateRes(res);
   }
 
-
   //Renders the graph to the page
   //Along with the buttons which define preferences
   render() {
     return (
       <div className="target">
+        <nav className='navbar navbar-default'>
+          <div className='container-fluid'>
+            <div className='navbar-header'>
+              <a className='navbar-brand' href='https://www.youtube.com/watch?v=KmtzQCSh6xk' target='_blank'>CRYPTO TRACKERRRR</a>
+            </div>
+
+            <ul className='nav navbar-nav'>
+              <li className="active"><a href="/#">Home</a></li>
+              <li><a href="#">LOL THIS DOESN'T</a></li> 
+              <li><a href="#">LINK TO ANYTHING</a></li>
+            </ul>
+
+            <ul className="nav navbar-nav navbar-right">
+              <li>
+                <a onClick={ () => { this.savePrefs(this.synced.bind(this)); }}>SAVE PREFS</a>
+                <span className={this.syncState ? 'label label-success' : 'hide'}>Success</span>
+              </li>
+              <li><a onClick={ () => { window.location = '/login'; console.log('wtf'); }}>LOGOUT &rarr;</a></li>   
+            </ul>
+          </div>
+        </nav>
         <div className="col-md-4">    
           <NavBar logout={this.logout} savePrefs={this.savePrefs.bind(this)} synced={this.synced.bind(this)} syncState={this.state.synced} />
         </div>
