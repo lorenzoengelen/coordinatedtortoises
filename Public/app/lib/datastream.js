@@ -120,7 +120,7 @@ var initGraph = function (prefs) {
     } else {
 
       //Add to volume data
-      console.log(sumIn);
+      // console.log(sumIn);
       volumeData.push({
         btc: sumIn,
         date: data.time
@@ -134,7 +134,7 @@ var initGraph = function (prefs) {
         } else {
           var shownData = volumeData;
         }
-        console.log('MaxLen: ', maxLen, shownData);
+        // console.log('MaxLen: ', maxLen, shownData);
         update(shownData, 3000);
       }
 
