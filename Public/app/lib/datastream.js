@@ -1,5 +1,37 @@
+// ============================
+// new Bitstamp-ws data stream
+// ============================
+
+var Bitstamp = require('bitstamp-ws');
+
+var ws = new Bitstamp({
+  // force encrypted socket session
+  encrypted: true,
+
+  // BTC/USD market:
+  live_trades: true,
+  order_book: true,
+  diff_order_book: true,
+
+  // BTC/EUR market:
+  live_trades_btceur: false,
+  order_book_btceur: false,
+  diff_order_book_btceur: false
+});
+
+ws.on('data', function(data) {
+  console.log('new order book event:', data);
+});
+
+
+// ============================
+// legacy blockchain-ws stream
+// ============================
+
 //These have to be available to each function
-var socketURI = 'ws://localhost:4000';
+var socketURI = 'ws://ws.blockchain.info:8335/inv';
+// var socketURI = 'ws://localhost:4000';
+
 // array to keep track of our socket, so we can access and close
 // it later when we log out
 var sockets = [];
@@ -106,6 +138,7 @@ var initGraph = function (prefs) {
 
   var processData = function(data) {
     //Convert
+    console.log(data);
     data.time = new Date(data.time);
     data.bc = data.bc * convert;
 
