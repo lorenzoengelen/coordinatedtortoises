@@ -1,10 +1,11 @@
-var db = require('../../db/currencyData/currencyDB.js');
 var skt = require('../workers/bcSocket.js');
-var wss = require('../workers/serverSocket.js');
+var server = require('../workers/serverSocket.js');
 var geo = require('geo-from-ip');
 
+// create a new blockchain websocket
 var ws = new skt.ws(skt.url);
 
+// transform data from blockchain
 var clean = function(transaction) {
 
   var sum = 0;
@@ -28,32 +29,26 @@ var clean = function(transaction) {
 
 };
 
+// subscribe to new transactions
 ws.open(ws.options.newTransactions, function() {
-  console.log(ws.state() + ' to API');
+  console.log(ws.state() + ' to blockchain socket and subscribing to new transactions');
 });
 
 ws.getData(function(data, flags) {
 
+  var dat = JSON.parse(data);
+  console.log(data);
+
   var transaction = clean(JSON.parse(data).x);
 
-  wss.broadcast(JSON.stringify(transaction));
-  db.addData(transaction);
-
+  server.broadcast(JSON.stringify(transaction));
 });
 
 ws.onClose(function() {
   console.log(ws.state());
 });
 
-wss.newConnection(function(ws) {
-
+server.newConnection(function(ws) {
   console.log('New Connection');
-
-  var tenMinutesAgo = Date.now() - 60 * 10 * 1000;
-
-  db.readHistoricalData('bitcoinData', tenMinutesAgo, function(err, results) {
-    ws.send(JSON.stringify(results));
-  });
-
 });
 
