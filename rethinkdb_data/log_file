@@ -43,3 +43,57 @@
 2016-09-01T15:57:40.544825000 0.071863s warn: Cache size does not leave much memory for server and query overhead (available memory: 407 MB).
 2016-09-01T15:57:40.544835000 0.071873s warn: Cache size is very low and may impact performance.
 2016-09-01T15:57:40.546970000 0.074009s error: TCP socket creation failed for port 29015: Address already in use.
+2016-09-13T14:17:07.652329000 0.009016s notice: Recursively removing directory /Users/john/HackReactor/projects/legacy/coordinatedtortoises/rethinkdb_data/tmp
+2016-09-13T14:17:07.653376000 0.010067s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2016-09-13T14:17:07.661134000 0.017822s notice: Running on Darwin 15.6.0 x86_64
+2016-09-13T14:17:07.661211000 0.017897s notice: Loading data from directory /Users/john/HackReactor/projects/legacy/coordinatedtortoises/rethinkdb_data
+2016-09-13T14:17:07.701193000 0.057881s info: Automatically using cache size of 694 MB
+2016-09-13T14:17:07.702539000 0.059226s notice: Listening for intracluster connections on port 29015
+2016-09-13T14:17:07.704256000 0.060942s notice: Listening for client driver connections on port 28015
+2016-09-13T14:17:07.704420000 0.061106s notice: Listening for administrative HTTP connections on port 8080
+2016-09-13T14:17:07.704423000 0.061109s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2016-09-13T14:17:07.704428000 0.061114s notice: Listening on driver addresses: 127.0.0.1, ::1
+2016-09-13T14:17:07.704430000 0.061116s notice: Listening on http addresses: 127.0.0.1, ::1
+2016-09-13T14:17:07.704460000 0.061146s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-09-13T14:17:07.704469000 0.061156s notice: Server ready, "Julians_MacBook_Air_local_vi1" 20a690d3-face-4ae4-a949-0fb794d9d17b
+2016-09-13T14:20:43.648884000 216.009459s info: Table f5b6436e-1bac-45b4-855d-8723563587f9: Starting a new Raft election for term 1.
+2016-09-13T14:20:43.649274000 216.009849s info: Table f5b6436e-1bac-45b4-855d-8723563587f9: Added replica on this server.
+2016-09-13T14:20:43.678377000 216.038952s info: Table f5b6436e-1bac-45b4-855d-8723563587f9: This server is Raft leader for term 1. Latest log index is 0.
+2016-09-13T14:43:18.947172000 1195.815538s notice: Server got SIGINT from pid 42689, uid 501; shutting down...
+2016-09-13T14:43:18.947540000 1195.815906s notice: Shutting down client connections...
+2016-09-13T14:43:18.952237000 1195.820603s notice: All client connections closed.
+2016-09-13T14:43:18.952244000 1195.820609s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-09-13T14:43:18.960490000 1195.828856s notice: Storage engine shut down.
+2016-09-13T14:43:24.934644000 0.008281s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2016-09-13T14:43:24.938799000 0.012433s notice: Running on Darwin 15.6.0 x86_64
+2016-09-13T14:43:24.938840000 0.012474s notice: Loading data from directory /Users/john/HackReactor/projects/legacy/coordinatedtortoises/rethinkdb_data
+2016-09-13T14:43:24.978299000 0.051933s info: Automatically using cache size of 302 MB
+2016-09-13T14:43:24.980245000 0.053879s notice: Listening for intracluster connections on port 29015
+2016-09-13T14:43:25.014584000 0.088217s notice: Listening for client driver connections on port 28015
+2016-09-13T14:43:25.014748000 0.088381s notice: Listening for administrative HTTP connections on port 8080
+2016-09-13T14:43:25.014751000 0.088384s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2016-09-13T14:43:25.014753000 0.088386s notice: Listening on driver addresses: 127.0.0.1, ::1
+2016-09-13T14:43:25.014762000 0.088395s notice: Listening on http addresses: 127.0.0.1, ::1
+2016-09-13T14:43:25.014763000 0.088397s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-09-13T14:43:25.014765000 0.088398s notice: Server ready, "Julians_MacBook_Air_local_vi1" 20a690d3-face-4ae4-a949-0fb794d9d17b
+2016-09-13T14:43:26.683883000 1.757549s info: Table f5b6436e-1bac-45b4-855d-8723563587f9: Starting a new Raft election for term 2.
+2016-09-13T14:43:26.712404000 1.786070s info: Table f5b6436e-1bac-45b4-855d-8723563587f9: This server is Raft leader for term 2. Latest log index is 3.
+2016-09-13T16:05:53.907577000 0.053872s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2016-09-13T16:05:53.978763000 0.125065s notice: Running on Darwin 15.6.0 x86_64
+2016-09-13T16:05:53.978899000 0.125186s notice: Loading data from directory /Users/john/HackReactor/projects/legacy/coordinatedtortoises/rethinkdb_data
+2016-09-13T16:05:54.051380000 0.197666s info: Automatically using cache size of 645 MB
+2016-09-13T16:05:54.058859000 0.205145s notice: Listening for intracluster connections on port 29015
+2016-09-13T16:05:54.117012000 0.263298s notice: Listening for client driver connections on port 28015
+2016-09-13T16:05:54.117439000 0.263725s notice: Listening for administrative HTTP connections on port 8080
+2016-09-13T16:05:54.117450000 0.263736s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2016-09-13T16:05:54.117452000 0.263738s notice: Listening on driver addresses: 127.0.0.1, ::1
+2016-09-13T16:05:54.117454000 0.263739s notice: Listening on http addresses: 127.0.0.1, ::1
+2016-09-13T16:05:54.117455000 0.263741s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-09-13T16:05:54.117463000 0.263749s notice: Server ready, "Julians_MacBook_Air_local_vi1" 20a690d3-face-4ae4-a949-0fb794d9d17b
+2016-09-13T16:05:55.377223000 1.523542s info: Table f5b6436e-1bac-45b4-855d-8723563587f9: Starting a new Raft election for term 3.
+2016-09-13T16:05:55.403412000 1.549731s info: Table f5b6436e-1bac-45b4-855d-8723563587f9: This server is Raft leader for term 3. Latest log index is 6.
+2016-09-13T17:37:26.846246000 2684.419367s notice: Server got SIGINT from pid 47137, uid 501; shutting down...
+2016-09-13T17:37:26.846449000 2684.419570s notice: Shutting down client connections...
+2016-09-13T17:37:26.846648000 2684.419770s notice: All client connections closed.
+2016-09-13T17:37:26.846658000 2684.419779s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-09-13T17:37:26.859970000 2684.433092s notice: Storage engine shut down.
