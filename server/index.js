@@ -52,12 +52,12 @@ app.use(function printSession(req, res, next) {
 });
 
 var restrict = function(req, res, next) {
-  console.log('Inside restrict: ', req.session, '___');
+  // console.log('Inside restrict: ', req.session, '___');
   if (req.session.user) {
-    console.log('OPTION 1~~~~~');
+    // console.log('OPTION 1~~~~~');
     next();
   } else {
-    console.log('OPTION 2 !!!!!!!!!!!!!!!');
+    // console.log('OPTION 2 !!!!!!!!!!!!!!!');
     req.session.error = 'Access denied';
     res.redirect('/login');
   }
@@ -127,12 +127,12 @@ app.post('/login', function(req, res) {
   db.checkUser(un, pw, function(check) {
     if (check) {
       req.session.regenerate(function() {
-        console.log('USER FOUND: ', un, pw);
+        // console.log('USER FOUND: ', un, pw);
         req.session.user = un;
         res.redirect('/');  
       });
     } else {
-      console.log('USER NOT FOUND.');
+      // console.log('USER NOT FOUND.');
       res.redirect('/signup');
     }
   });
