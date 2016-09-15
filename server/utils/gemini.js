@@ -10,7 +10,7 @@ socket.onopen = function(event) {
 
 socket.onmessage = function(event) {
   var message = JSON.stringify(JSON.parse(event.data), undefined, 2);
-  console.log(message);
+  // console.log(message);
 };
 
 server.newConnection(function(ws) {
