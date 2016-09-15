@@ -5,7 +5,7 @@ var socket = io('https://websocket.btcc.com/');
 
 socket.emit('subscribe', ['marketdata_cnybtc']);
 socket.on('trade', function(data) { 
-	console.log(data); 
+	// console.log(data); 
 });
 
 // { trade_id: 86074713,
