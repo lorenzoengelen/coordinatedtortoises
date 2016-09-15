@@ -12,6 +12,7 @@ var blockchain = require('./utils/blockchain.js');
 var gdax = require('./utils/gdax.js');
 var bitstamp = require('./utils/bitstamp.js');
 var paymium = require('./utils/paymium.js');
+var poloniex = require('./utils/poloniex.js');
 
 var rates = require('./workers/exchangeRates.js');
 var helpers = require('./paycoin/bitcoinHelpers.js');

@@ -1,4 +1,4 @@
-// PARIS
+// PARIS (trades not working)
 var server = require('../workers/serverSocket.js');
 var io = require('socket.io-client');
 
@@ -11,8 +11,8 @@ socket.on('connect', function() {
 });
 
 socket.on('stream', function(publicData) {
+  // console.log(publicData);
   // console.log(publicData.ticker);
-  console.log(publicData.trades);
   // console.log(publicData.bids);
   // console.log(publicData.asks);
 });
