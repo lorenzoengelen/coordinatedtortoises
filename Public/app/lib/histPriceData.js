@@ -19,7 +19,7 @@ var getHistoricalPriceData = function() {
         $('.histData').append('<h3 class="text-center">Historical Bitcoin Prices</h3><br>');
         $('.histData').append('<div>' + histData + '</div>');
       },
-      error: (error) => console.log('An error occurred while trying to get historical data: ', error);
+      error: (error) => console.log('An error occurred while trying to get historical data: ', error)
     });
 }
 
