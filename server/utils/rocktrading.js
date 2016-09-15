@@ -5,7 +5,7 @@ var Pusher = require('pusher-js/node');
 var pusher = new Pusher('8458eb6fbd288f0cf3d8');
 var trades_channel = pusher.subscribe('currency');
 trades_channel.bind('last_trade', function(data) {
-  console.log(data);
+  // console.log(data);
 });
 
 server.newConnection(function(ws) {
