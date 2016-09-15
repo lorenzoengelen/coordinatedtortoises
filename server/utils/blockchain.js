@@ -42,10 +42,10 @@ ws.open(blockchain.options, function() {
 ws.getData(function(data, flags) {
 
   var dat = JSON.parse(data);
-  console.log(data);
+  //console.log(data);
 
   var transaction = clean(JSON.parse(data).x);
-  console.log(transaction);
+  //console.log(transaction);
 
   server.broadcast(JSON.stringify(transaction));
 });
@@ -68,5 +68,6 @@ server.newConnection(function(ws) {
     console.log(ws.readyState);
   });
 
+  console.log('Blockchain is up');
 });
 

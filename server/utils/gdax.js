@@ -1,3 +1,4 @@
+// SAN FRANCISCO
 var skt = require('../workers/bcSocket.js');
 var server = require('../workers/serverSocket.js');
 
@@ -15,10 +16,8 @@ ws.open(gdax.options, function() {
 });
 
 ws.getData(function(data, flags) {
-
   var dat = JSON.parse(data);
-  console.log(data);
-
+  //console.log(data);
   //server.broadcast(JSON.stringify(transaction));
 });
 
@@ -27,6 +26,6 @@ ws.onClose(function() {
 });
 
 server.newConnection(function(ws) {
-  console.log('New Connection');
+  console.log('GDAX is up');
 });
 
