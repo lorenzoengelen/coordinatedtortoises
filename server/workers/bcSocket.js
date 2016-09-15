@@ -1,8 +1,6 @@
 var WebSocket = require('ws');
 var events = require('events');
 
-var gdaxURI = 'wss://ws-feed.gdax.com';
-
 // creates a new class called BitCoinWebSocket
 var BitCoinWebSocket = function(url) {
   WebSocket.call(this, url);
