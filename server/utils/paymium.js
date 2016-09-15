@@ -11,10 +11,10 @@ socket.on('connect', function() {
 });
 
 socket.on('stream', function(publicData) {
-  console.log(publicData.ticker);
-  console.log('PARIS', publicData.trades);
-  console.log(publicData.bids);
-  console.log(publicData.asks);
+  // console.log(publicData.ticker);
+  console.log(publicData.trades);
+  // console.log(publicData.bids);
+  // console.log(publicData.asks);
 });
 
 server.newConnection(function(ws) {
