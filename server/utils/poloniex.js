@@ -9,7 +9,7 @@ var connection = new autobahn.Connection({
 
 connection.onopen = function (session) {
 	var marketEvent = function(args, kwargs) {
-	  console.log(args);
+	  // console.log(args);
 	}
 	session.subscribe('USDT_BTC', marketEvent);
 }
