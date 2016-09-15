@@ -16,6 +16,7 @@ var poloniex = require('./utils/poloniex.js');
 var btcc = require('./utils/btcc.js');
 var rocktrading = require('./utils/rocktrading.js');
 var gemini = require('./utils/gemini.js');
+var bitfinex = require('./utils/bitfinex.js');
 
 var rates = require('./workers/exchangeRates.js');
 var helpers = require('./paycoin/bitcoinHelpers.js');
