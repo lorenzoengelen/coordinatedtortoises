@@ -1,6 +1,7 @@
 //ES6 makes you expose things to the window, similar to in Node
 
 //Stateless components don't even have to be declared as a React Component, and ES6 syntax makes them look super clean
+
 var NavBar = ({logout, savePrefs, synced, syncState}) => (
     <nav className='navbar navbar-default'>
       <div className='container-fluid'>
@@ -9,9 +10,9 @@ var NavBar = ({logout, savePrefs, synced, syncState}) => (
         </div>
 
         <ul className='nav navbar-nav'>
-          <li className="active"><a href="/#">Home</a></li>
-          <li><a href="#">LOL THIS DOESN'T</a></li> 
-          <li><a href="#">LINK TO ANYTHING</a></li>
+          <li className="active"><a href="/">HOME</a></li>
+          <li><a href="/miners-revenue">MINING REVENUE</a></li> 
+          <li><a href="#">PLACEHOLDER</a></li>
         </ul>
 
         <ul className="nav navbar-nav navbar-right">
