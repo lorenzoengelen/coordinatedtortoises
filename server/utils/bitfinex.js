@@ -1,4 +1,4 @@
-//
+// HONG KONG
 var skt = require('../workers/bcSocket.js');
 var server = require('../workers/serverSocket.js');
 
@@ -21,7 +21,7 @@ ws.open(bitfinex.options, function() {
 
 ws.getData(function(data, flags) {
   var dat = JSON.parse(data);
-  console.log(data);
+  //console.log(data);
   //server.broadcast(JSON.stringify(transaction));
 });
 

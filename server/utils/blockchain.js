@@ -11,27 +11,23 @@ var blockchain = {
 var ws = new skt.ws(blockchain.uri);
 
 // transform data from blockchain
-var clean = function(transaction) {
-
-  var sum = 0;
+var newStream = function(transaction) {
+  var result = {};
+  result.name = 'blockchain';
+  result.amount = 0;
+  
   var loc = geo.allData(transaction.relayed_by).location;
-  var coords = [];
-
   if (loc !== undefined) {
-    coords = [loc.latitude, loc.longitude];
+    result.lat = loc.latitude;
+    result.lon = loc.longitude;
   }
 
   transaction.out.forEach(function(sent) {
-    sum += sent.value;
+    result.amount += sent.value / 100000000;
   });
 
-  return {
-    bc: sum / 100000000,
-    time: transaction.time * 1000,
-    ip: transaction.relayed_by,
-    coords: coords
-  };
-
+  result.time = transaction.time * 1000
+  return result;
 };
 
 // subscribe to new transactions
@@ -40,18 +36,12 @@ ws.open(blockchain.options, function() {
 });
 
 ws.getData(function(data, flags) {
-
-  var dat = JSON.parse(data);
-  //console.log(data);
-
-  var transaction = clean(JSON.parse(data).x);
-  //console.log(transaction);
-
-  server.broadcast(JSON.stringify(transaction));
-});
-
-ws.onClose(function() {
-  console.log(ws.state());
+  // data we want
+  var transaction = newStream(JSON.parse(data).x);
+  // broadcast with server socket
+  if (transaction.lat && transaction.lon) {
+    server.broadcast(JSON.stringify(transaction));
+  }
 });
 
 server.newConnection(function(ws) {
