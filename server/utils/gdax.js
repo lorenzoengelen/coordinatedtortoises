@@ -41,15 +41,4 @@ ws.onClose(function() {
 });
 
 server.newConnection(function(ws) {
-  console.log('GDAX is up');
 });
-
-//  {
-// 	"type":"received",
-// 	"sequence":1513572974,
-// 	"order_id":"3e049269-f51e-4947-9676-96e87e36a430",
-// 	"order_type":"limit",
-// 	"size":"0.03",
-// 	"price":"607.68","side":"sell","funds":null,"product_id":"BTC-USD","time":"2016-09-15T21:31:36.060129Z"}
-// {"type":"open","sequence":1513572975,"side":"sell","price":"607.68","order_id":"3e049269-f51e-4947-9676-96e87e36a430","remaining_size":"0.03","product_id":"BTC-USD","time":"2016-09-15T21:31:36.060534Z"}
-// {"type":"done","order_type":"limit","side":"sell","sequence":1513572976,"order_id":"cd3e6811-febc-4baf-b8e6-23452d6f60bb","reason":"canceled","product_id":"BTC-USD","time":"2016-09-15T21:31:36.24422Z","price":"621.28","remaining_size":"0.26"}

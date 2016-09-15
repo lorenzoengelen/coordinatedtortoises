@@ -11,19 +11,20 @@ var ws = new Bitstamp({
   live_trades_btceur: true
 });
 
-console.log('listening to new trades..');
+var newStream = function(data) {
+  return {
+  	name: 'bitstamp',
+  	amount: data.amount,
+  	lat: 51.5156993,
+  	lon: -0.1095603,
+  	time: data.timestamp
+  }
+};
+
 ws.on('trade', function(trade) {
-  // console.log(trade);
+  var stream = newStream(trade);
+  server.broadcast(JSON.stringify(stream));
 });
 
 server.newConnection(function(ws) {
-  console.log('Bitstamp is up');
 });
-
-// { buy_order_id: 151096310,
-//   timestamp: '1473899006',
-//   price: 607.09,
-//   amount: 0.011, // Trade amount.
-//   sell_order_id: 151096319,
-//   type: 1, // Trade type (0 - buy; 1 - sell).
-//   id: 12037426 }
