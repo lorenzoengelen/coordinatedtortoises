@@ -13,7 +13,7 @@ var ws = new Bitstamp({
 
 console.log('listening to new trades..');
 ws.on('trade', function(trade) {
-  console.log(trade);
+  // console.log(trade);
 });
 
 server.newConnection(function(ws) {
