@@ -18,24 +18,26 @@
 
   <link rel="stylesheet" href="assets/styles.css">
 
+  <link rel='icon' type='image/png' href='assets/favicon.png'>
+
 </head>
 <body>
 
-  <div class="col-md-4">
+  <div class="col-md-6 col-md-offset-3 loginWrapper" >
     <div class="panel panel-primary">
       <div class="panel-heading"> Login </div>
-      <div class="panel-body"> 
+      <div class="panel-body loginContainer"> 
         <form action="/login" method="post">
             <div>
-              <label for="username">Username:</label>
-              <input id="username" type="text" name="username">
+              <label for="username"></label>
+              <input id="username" type="text" name="username" placeholder='Username' class='loginUsername'>
             </div>
             <div>
-              <label for="password">Password:</label>
-              <input id="password" type="password" name="password">
+              <label for="password"></label>
+              <input id="password" type="password" name="password" placeholder='Password' class='loginPassword'>
             </div>
             <div>
-              <input type="submit" value="Login">
+              <input type="submit" class='loginSubmit' value="Login">
             </div>
         </form>
       </div>

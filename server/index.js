@@ -190,3 +190,8 @@ app.get('/logout', function(req, res) {
 app.listen(3000, function() {
   console.log('server listening at port 3000');
 });
+
+//--------------------------- MINERS REVENUE --------------//
+app.get('/miners-revenue', function(req, res) {
+  res.sendFile(path.resolve('Public/minersRevenue.html'));
+});

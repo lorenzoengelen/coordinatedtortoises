@@ -2,7 +2,7 @@
 
 //Stateless components don't even have to be declared as a React Component, and ES6 syntax makes them look super clean
 
-var NavBar = ({logout, savePrefs, synced, syncState}) => (
+var GraphsNavBar = () => (
     <nav className='navbar navbar-default'>
       <div className='container-fluid'>
         <div className='navbar-header'>
@@ -16,10 +16,6 @@ var NavBar = ({logout, savePrefs, synced, syncState}) => (
         </ul>
 
         <ul className="nav navbar-nav navbar-right">
-          <li>
-            <a onClick={ () => { savePrefs(synced.bind(this)); }}>SAVE PREFS</a>
-            <div className={ syncState ? 'label label-success' : 'hide' }>Success</div>
-          </li>
           <li><a onClick={ () => { logout(); window.location = '/login'; }}>LOGOUT &rarr;</a></li>   
         </ul>
       </div>
@@ -29,7 +25,7 @@ var NavBar = ({logout, savePrefs, synced, syncState}) => (
 );
 //This is the navbar on the left side of the screen which contains the transaction maker and a way to save user preferences
 
-window.NavBar = NavBar;
+window.GraphsNavBar = GraphsNavBar;
 
         
 
