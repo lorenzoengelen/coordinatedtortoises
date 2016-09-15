@@ -10,6 +10,7 @@ var helpers = require('./paycoin/bitcoinHelpers.js');
 // SOCKETS
 var blockchain = require('./utils/blockchain.js');
 var gdax = require('./utils/gdax.js');
+var bitstamp = require('./utils/bitstamp.js');
 
 var rates = require('./workers/exchangeRates.js');
 var helpers = require('./paycoin/bitcoinHelpers.js');
