@@ -30,6 +30,8 @@ ws.on('data', function(data) {
 
 //These have to be available to each function
 var socketURI = 'ws://ws.blockchain.info:8335/inv';
+// var socketURI = 'ws://localhost:4000';
+
 // array to keep track of our socket, so we can access and close
 // it later when we log out
 var sockets = [];
