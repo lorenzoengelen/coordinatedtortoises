@@ -86,7 +86,7 @@ class TxVolume extends React.Component {
             .attr('y', 6)
             .attr('dy', '.71em')
             .style('text-anchor', 'end')
-            .text('Price ($)');
+            .text('Amount ($)');
 
         // this is going to draw our line
         svg.append('path')
