@@ -12,7 +12,7 @@ var NavBar = ({logout, savePrefs, synced, syncState}) => (
         <ul className='nav navbar-nav'>
           <li className="active"><a href="/">HOME</a></li>
           <li><a href="/miners-revenue">MINING REVENUE</a></li> 
-          <li><a href="#">PLACEHOLDER</a></li>
+          <li><a href="/tx-volume">TX VOLUME</a></li>
         </ul>
 
         <ul className="nav navbar-nav navbar-right">

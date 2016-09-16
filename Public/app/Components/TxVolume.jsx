@@ -1,5 +1,5 @@
 
-class MinersRevenue extends React.Component {
+class TxVolume extends React.Component {
 
   constructor(props) {    
     super(props);
@@ -14,7 +14,7 @@ class MinersRevenue extends React.Component {
     var context = this;
     $.ajax({
       method: 'GET',
-      url: 'https://blockchain.info/charts/miners-revenue?format=json&cors=true',
+      url: 'https://blockchain.info/charts/estimated-transaction-volume-usd?format=json&cors=true',
       success: function(data) {
         // format our dates to something we can use
         // currently they're unix timestamps
@@ -61,7 +61,6 @@ class MinersRevenue extends React.Component {
 
         // append the graph svg on the dom
         var svg = d3.select('body').append('svg')
-            .attr('class', 'wtf')
             .attr('width', width + margin.left + margin.right)
             .attr('height', height + margin.top + margin.bottom)
           .append('g')
@@ -150,4 +149,4 @@ class MinersRevenue extends React.Component {
      
 }  
 
-window.MinersRevenue = MinersRevenue;
+window.TxVolume = TxVolume;

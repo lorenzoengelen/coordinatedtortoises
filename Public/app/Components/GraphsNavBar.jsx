@@ -12,11 +12,11 @@ var GraphsNavBar = () => (
         <ul className='nav navbar-nav'>
           <li className="active"><a href="/">HOME</a></li>
           <li><a href="/miners-revenue">MINING REVENUE</a></li> 
-          <li><a href="#">PLACEHOLDER</a></li>
+          <li><a href="/tx-volume">TX VOLUME</a></li>
         </ul>
 
         <ul className="nav navbar-nav navbar-right">
-          <li><a onClick={ () => { logout(); window.location = '/login'; }}>LOGOUT &rarr;</a></li>   
+          <li><a href='/login'>LOGOUT &rarr;</a></li>   
         </ul>
       </div>
     </nav>
