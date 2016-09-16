@@ -85,9 +85,11 @@ class TxMaker extends React.Component {
                 <input type="Number" id="amount" placeholder="Amount"></input>
             </div>
             <center>
-              <button className="btn btn-primary sendTx">Make Tx</button>
-              <div id='results'>
+              <div>
+                <button className="btn btn-primary sendTx">Make Tx</button>
+                <button className="btn btn-primary pastTx">Tx History</button>
               </div>
+              <div id='results'></div>
             </center>
         </div>
       </div>
