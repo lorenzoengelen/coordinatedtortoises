@@ -16,7 +16,7 @@ var GraphsNavBar = () => (
         </ul>
 
         <ul className="nav navbar-nav navbar-right">
-          <li><a onClick={ () => { logout(); window.location = '/login'; }}>LOGOUT &rarr;</a></li>   
+          <li><a href='/login'>LOGOUT &rarr;</a></li>   
         </ul>
       </div>
     </nav>

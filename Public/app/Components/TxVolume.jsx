@@ -14,7 +14,7 @@ class TxVolume extends React.Component {
     var context = this;
     $.ajax({
       method: 'GET',
-      url: 'https://blockchain.info/charts/estimated-transaction-volume?format=json&cors=true',
+      url: 'https://blockchain.info/charts/estimated-transaction-volume-usd?format=json&cors=true',
       success: function(data) {
         // format our dates to something we can use
         // currently they're unix timestamps
@@ -32,7 +32,7 @@ class TxVolume extends React.Component {
         // margin, width, and height for the graph
         var margin = {top: 20, right: 20, bottom: 30, left: 80};
         var width = window.innerWidth - margin.left - margin.right;
-        var height = window.innerHeight - 100 - margin.top - margin.bottom;
+        var height = window.innerHeight - 150 - margin.top - margin.bottom;
 
         // scaling for the graph
         var x = d3.time.scale()
