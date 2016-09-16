@@ -1,0 +1,63 @@
+body {
+  background-image: url("p4.png");
+}
+
+svg {
+  font: 10px sans-serif;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.minersRevenueTitle, .txVolumeTitle{
+  font-family: Arial;
+  font-size: 42px;
+  font-weight: bold;
+  color: #353636;
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+  fill: none;
+  stroke: steelblue;
+}
+
+.textOverlay {
+  color: #353636;
+  font-size: 20px;
+}
+
+.infoDisplay {
+  position: absolute;
+  width: 400px;
+  margin-left: -150px;
+  left: 50%;
+}
+
+footer {
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  bottom: -600px;
+
+}

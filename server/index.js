@@ -195,3 +195,8 @@ app.listen(3000, function() {
 app.get('/miners-revenue', function(req, res) {
   res.sendFile(path.resolve('Public/minersRevenue.html'));
 });
+
+//--------------------------- TX VOLUME --------------//
+app.get('/tx-volume', function(req, res) {
+  res.sendFile(path.resolve('Public/txVolume.html'));
+});
