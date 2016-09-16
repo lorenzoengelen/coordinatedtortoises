@@ -7,8 +7,16 @@ var session = require('express-session');
 var path = require('path');
 var helpers = require('./paycoin/bitcoinHelpers.js');
 
-//var pete = require('./workers/serverSocket.js');
-var connect = require('./utils/connect.js');
+// SOCKETS
+var blockchain = require('./utils/blockchain.js');
+var gdax = require('./utils/gdax.js');
+var bitstamp = require('./utils/bitstamp.js');
+var poloniex = require('./utils/poloniex.js');
+var btcc = require('./utils/btcc.js');
+var rocktrading = require('./utils/rocktrading.js');
+var gemini = require('./utils/gemini.js');
+var bitfinex = require('./utils/bitfinex.js');
+
 var rates = require('./workers/exchangeRates.js');
 var helpers = require('./paycoin/bitcoinHelpers.js');
 
