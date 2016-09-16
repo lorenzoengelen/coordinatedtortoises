@@ -30,6 +30,9 @@ body {
   padding: 50px;
 }*/
 
+.main-map {
+  background-color: white;
+}
 
 svg {
   font: 10px sans-serif;

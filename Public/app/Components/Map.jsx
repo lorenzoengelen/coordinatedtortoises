@@ -10,7 +10,9 @@ class WorldMap extends React.Component {
     return (
       <div className="panel panel-primary">
         <div className="panel-heading">Locations</div>
-        <div className="panel-body main-map"></div>
+        <div className="panel-body main-map">
+          <svg width="820" height="620"></svg>
+        </div>
       </div>
     );
   }
