@@ -22,7 +22,7 @@ svg {
   stroke-width: 1.5px;
 }
 
-.minersRevenueTitle, .txVolumeTitle{
+.minersRevenueTitle, .txValueTitle{
   font-family: Arial;
   font-size: 42px;
   font-weight: bold;

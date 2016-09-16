@@ -197,6 +197,6 @@ app.get('/miners-revenue', function(req, res) {
 });
 
 //--------------------------- TX VOLUME --------------//
-app.get('/tx-volume', function(req, res) {
-  res.sendFile(path.resolve('Public/txVolume.html'));
+app.get('/tx-value', function(req, res) {
+  res.sendFile(path.resolve('Public/txValue.html'));
 });

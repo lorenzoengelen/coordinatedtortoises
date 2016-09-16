@@ -1,5 +1,5 @@
 
-class TxVolume extends React.Component {
+class TxValue extends React.Component {
 
   constructor(props) {    
     super(props);
@@ -149,4 +149,4 @@ class TxVolume extends React.Component {
      
 }  
 
-window.TxVolume = TxVolume;
+window.TxValue = TxValue;
