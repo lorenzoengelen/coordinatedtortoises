@@ -1,39 +1,72 @@
+var socketURI = 'ws://localhost:4000';
+
+var initSocket = function(cb) {
+  var bitsocket = new WebSocket(socketURI);
+  bitsocket.onopen = function() {
+    console.log('Connection opened!');
+  };
+  bitsocket.onerror = function(e) {
+    console.log('There was an error: ', e);
+  };
+  bitsocket.onmessage = function(event) {
+    cb(event.data);
+  }
+}
+
 var draw = function() {
 
   var width  = 820;
   var height = 620;
   var rScale = d3.scale.sqrt();
-  var peoplePerPixel = 50000;
-  var max_population = [];
+  // var peoplePerPixel = 50000;
+  // var max_population = [];
 
-  // Configuration for the spinning effect
+  // config for spinning effect
   var time = Date.now();
   var rotate = [0, 0];
   var velocity = [.015, -0];
 
-  // set projection type and paremetes
+  // projection type and paremetes
   var projection = d3.geo.orthographic()
-     .scale(300)
-     .translate([(width / 2) + 50, height / 2])
-     .clipAngle(90)
-     .precision(0.3);
+    .scale(300)
+    .translate([(width / 2) + 50, height / 2])
+    .clipAngle(90)
+    .precision(0.3);
 
-  // create path variable, empty svg element and group container
+  // path variable
   var path = d3.geo.path()
-     .projection(projection);
+    .projection(projection);
+  // empty svg element
   var svg = d3.select("svg");
+  // group container
   var g = svg.append("g");
 
-  // drawing dark grey spehere as landmass
+  // grey sphere as landmass
   g.append("path")
-     .datum({type: "Sphere"})
-     .attr("class", "sphere")
-     .attr("d", path)
-     .attr("fill", "#eee");
+    .datum({type: "Sphere"})
+    .attr("class", "sphere")
+    .attr("d", path)
+    .attr("fill", "#777"); // #eee
+
+  initSocket(function(transaction) {
+    console.log(JSON.parse(transaction));
+    
+    var transaction = JSON.parse(transaction);
+    var lonlat = [transaction.lon, transaction.lat];
+    var xy = projection(lonlat);
+
+    g.append("circle")
+    .attr({
+      cx: xy[0],
+      cy: xy[1],
+      r: transaction.amount
+    })
+    .attr("fill", "#ffba00")
+    .attr("fill-opacity", 0.2);
+  });
 
   // hackish approach to get bl.ocks.org to display individual height
   d3.select(self.frameElement).style("height", height + "px");
-
 };
 
 // loc = [longitude, latitude]
@@ -42,10 +75,10 @@ var addLocation = function(loc) {
     var coords = projection(loc);
 
     d3.select(".worldMap").append('svg:circle')
-        .attr('cx', coords[0])
-        .attr('cy', coords[1])
-        .attr('r', 1.5)
-        .attr('fill', 'red');
+      .attr('cx', coords[0])
+      .attr('cy', coords[1])
+      .attr('r', 1.5)
+      .attr('fill', 'red');
 
 };
 
