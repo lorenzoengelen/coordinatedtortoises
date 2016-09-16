@@ -1,5 +1,5 @@
 
-class TxVolume extends React.Component {
+class TxValue extends React.Component {
 
   constructor(props) {    
     super(props);
@@ -86,7 +86,7 @@ class TxVolume extends React.Component {
             .attr('y', 6)
             .attr('dy', '.71em')
             .style('text-anchor', 'end')
-            .text('Price ($)');
+            .text('Amount ($)');
 
         // this is going to draw our line
         svg.append('path')
@@ -149,4 +149,4 @@ class TxVolume extends React.Component {
      
 }  
 
-window.TxVolume = TxVolume;
+window.TxValue = TxValue;

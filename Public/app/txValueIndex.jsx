@@ -1,3 +1,3 @@
 
 ReactDOM.render(<GraphsNavBar />, document.getElementById('navBarTarget'));
-ReactDOM.render(<TxVolume />, document.getElementById('txVolumeTarget'));
+ReactDOM.render(<TxValue />, document.getElementById('TxValueTarget'));

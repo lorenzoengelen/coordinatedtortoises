@@ -37,7 +37,7 @@ class Exchanges extends React.Component {
       selected = selected.slice(selected.indexOf('(') + 1, selected.indexOf(')'));
       $('.currdata').each(function(index, elem){
         var query = $(elem).text();
-        if(selected !== query.slice(query.indexOf('(') + 1, query.indexOf(')'))){
+        if (selected !== query.slice(query.indexOf('(') + 1, query.indexOf(')'))) {
           $(elem).parent().hide();
         }
       }); 
