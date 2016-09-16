@@ -20,7 +20,7 @@ var newStream = function(data) {
 trades_channel.bind('last_trade', function(data) {
   var stream = newStream(data);
   if (stream) {
-  	console.log(stream);
+  	server.broadcast(JSON.stringify(stream));
   }
 });
 
