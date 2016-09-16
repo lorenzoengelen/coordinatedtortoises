@@ -5,7 +5,6 @@ var wss = new WebSocketServer({host: 'localhost', port: 4000});
 
 //Broadcasts all the bitcoin data to each client
 wss.broadcast = function(data) {
-	// console.log(data);
   wss.clients.forEach(function(client) {
     client.send(data);
   });
