@@ -20,9 +20,7 @@ ws.open(bitfinex.options, function() {
 });
 
 ws.getData(function(data, flags) {
-  var dat = JSON.parse(data);
-  //console.log(data);
-  //server.broadcast(JSON.stringify(transaction));
+  var data = JSON.parse(data);
 });
 
 ws.onClose(function() {
@@ -32,17 +30,3 @@ ws.onClose(function() {
 server.newConnection(function(ws) {
   console.log('GDAX is up');
 });
-
-// [14,"te","3134357-BTCUSD",1473966624,612.69,-0.05]
-// [14,"tu","3134357-BTCUSD",24022635,1473966624,612.69,-0.05]
-// [14,"hb"]
-// [14,"hb"]
-// [14,"hb"]
-// [14,"hb"]
-
-// SEQ	string	Trade sequence id
-// ID	int	Trade database id
-// TIMESTAMP	int	Unix timestamp of the trade.
-// PRICE	float	Price at which the trade was executed
-// ±AMOUNT	float	How much was bought (positive) or sold (negative).
-// The order that causes the trade determines if it is a buy or a sell.
