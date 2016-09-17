@@ -1,5 +1,5 @@
 class TxMaker extends React.Component {
-  //Upon render, it adds a click handler to a button
+  //Upon render, it adds click handlers to two buttons
   componentDidMount() {
     $('.sendTx').on('click', function(){
       //Empties out previous results from the last transaction.
@@ -38,8 +38,12 @@ class TxMaker extends React.Component {
         $('#pkDiv').addClass('has-error');
       }
 
-      //I couldn't make it so the amount field would turn red if not filled, so I set to 0 as a default
-      data['amount'] = $('#amount').val() === '' ? $('#amount').val() : 0;
+      //Sets default amount to 0
+      if (typeof $('#amount').val() !== 'number') {
+        data['amount'] = 0;
+      } else {
+        data['amount'] = $('#amount').val();
+      }
       
 
       //If it's ok to send the data, it sends it to the server and builds it and pushes it to the blockchain
@@ -49,6 +53,25 @@ class TxMaker extends React.Component {
         });
       } else {
         $('#results').append('<span class="bg-danger">Please Fill out All Fields</span>');
+      }
+    });
+
+    // VERIFY CLASS NAME
+    $('.pastTx').on('click', function(){
+      //Empties out previous results from the last transaction.
+      $('#results').empty();
+      var shouldSend = false;
+
+      // query the db
+      // return user.history.data.amount
+      // if 
+      
+      if(shouldSend){ 
+        $.post('http://localhost:3000/txmake', data, function(tx){ 
+          $('#results').append('<span class="bg-success">' + tx + '</span>');
+        });
+      } else {
+        $('#results').append('<span class="bg-danger">You Have No Transaction History</span>');
       }
     });
   }
