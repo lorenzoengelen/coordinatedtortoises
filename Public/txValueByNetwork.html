@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Crypto-Tracker</title>
+
+  <!-- The library dependencies -->
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="//d3js.org/topojson.v1.min.js"></script>
+  <script src="node_modules/react/dist/react.js"></script>
+  <script src="node_modules/react-dom/dist/react-dom.js"></script>
+  <script src="node_modules/lodash/lodash.js"></script>
+  <!-- USING CDN FOR BOOTSTRAP -->
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- moments to format time -->
+  <script src='assets/moments.js'></script>
+
+  <!-- CSS files -->
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+  <link rel='stylesheet' type='text/css' href='assets/graphs.css'>
+
+  <link rel='icon' type='image/png' href='assets/favicon.png'>
+</head>
+<body>
+  <!-- target for navbar -->
+  <div id='navBarTarget'></div>
+  <div class='txValueByNetworkTitle'>BITCOIN TX VOLUME BY NETWORK</div>
+  <div id='TxValueByNetworkTarget'></div>
+  <div class='col-md-8 col-md-offset-2 infoDisplay'>** Data shown reflects data collected since
+  you opened this window...</div>
+  <div class='bubbleChartTarget'></div>
+
+  <script src="compiled/app/Components/GraphsNavBar.js"></script>
+  <script src="compiled/app/Components/TxValueByNetwork.js"></script>
+  <script src="compiled/app/txValueByNetwork.js"></script>
+
+  
+</body>
+</html>

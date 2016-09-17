@@ -208,3 +208,8 @@ app.get('/miners-revenue', function(req, res) {
 app.get('/tx-value', function(req, res) {
   res.sendFile(path.resolve('Public/txValue.html'));
 });
+
+//--------------------------- TX VALUE BY WALLET --------------//
+app.get('/tx-value-by-network', function(req, res) {
+  res.sendFile(path.resolve('Public/txValueByNetwork.html'));
+});
