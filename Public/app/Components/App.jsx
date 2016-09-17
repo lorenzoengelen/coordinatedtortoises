@@ -148,18 +148,12 @@ class App extends React.Component {
         
         <div className="col-md-4">
           <div className="panel panel-primary height-full">
-            <div className="panel-heading"> Your Crypto-currency Dashboard</div>
+            <div className="panel-heading"> Cryptocurrency Dashboard</div>
             <div className="panel-body">
               <TxMaker />
-              <div className="btn-group-vertical" role="group" aria-label="...">
-                <span className="text"> 
-                  Try interacting with the ticker graphs on the right! In your account, you can customize your 
-                  dashboard view any way you like, and save those preferences so that you see them each time you log in. 
-                </span>
-              </div>
             </div>
             <div className="panel-footer">
-              Made at Hack Reactor by Nick, Pete, Clarabelle, and Julian
+              Made with <img src="./assets/heart.png" height="5" width="5"> at Hack Reactor.
             </div>
           </div>    
         </div>
@@ -178,5 +172,5 @@ class App extends React.Component {
 }
 
 
-//ES6 makes you expose things to the window, similar to in Node
+// ES6 makes you expose things to the window, similar to in Node
 window.App = App;

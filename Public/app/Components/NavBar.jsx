@@ -6,7 +6,7 @@ var NavBar = ({logout, savePrefs, synced, syncState}) => (
     <nav className='navbar navbar-default'>
       <div className='container-fluid'>
         <div className='navbar-header'>
-          <a className='navbar-brand' href='https://www.youtube.com/watch?v=KmtzQCSh6xk' target='_blank'>CRYPTO TRACKERRRR</a>
+          <a className='navbar-brand' href='https://www.youtube.com/watch?v=KmtzQCSh6xk' target='_blank'>CRYPTOCURRENT</a>
         </div>
 
         <ul className='nav navbar-nav'>

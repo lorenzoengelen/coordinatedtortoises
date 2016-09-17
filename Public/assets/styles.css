@@ -26,6 +26,9 @@ body {
   margin-right: 15px;
 }
 
+.btn-primary {
+  margin: 5px;
+}
 /*.panel-primary .text {
   padding: 50px;
 }*/
