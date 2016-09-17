@@ -153,7 +153,7 @@ class App extends React.Component {
               <TxMaker />
             </div>
             <div className="panel-footer">
-              Made with <img src="./assets/heart.png" height="5" width="5"> at Hack Reactor.
+              Made with <img src="./assets/heart.png" height="5" width="5"/> at Hack Reactor.
             </div>
           </div>    
         </div>
