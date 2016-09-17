@@ -77,24 +77,22 @@ var draw = function() {
     var lonlat = [transaction.lon, transaction.lat];
     var xy = projection(lonlat);
 
+    var calculate = function(amount) {
+      return 10 * (1 - Math.pow(Math.E, (-0.5 * amount)));
+    };
+
     g.append("circle")
     .attr({
       cx: xy[0],
       cy: xy[1],
-      r: transaction.amount
+      r: calculate(transaction.amount)
     })
     .attr("fill", "#ffba00")
-    .attr("fill-opacity", 0.2);
-
-    // Drawing transparent circle markers for cities
-    g.selectAll("path.cities")
-      .data(data.features)
-      .enter().append("path")
-      .attr("class", "cities")
-      .attr("d", path)
-      .attr("fill", "#ffba00")
-      .attr("fill-opacity", 0.3);
-
+    .attr("fill-opacity", 0.6)
+    .transition()
+    .duration(3000)
+    .style("fill-opacity", 0)
+    .remove();
 
   });
 
