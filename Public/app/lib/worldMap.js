@@ -18,13 +18,16 @@ var draw = function() {
   var width  = 820;
   var height = 620;
   var rScale = d3.scale.sqrt();
+  var rotate = [10, -10];
+  var velocity = [.003, -.001];
+  var time = Date.now();
 
   // projection type and paremetes
   var projection = d3.geo.orthographic()
     .scale(300)
     .translate([(width / 2) + 50, height / 2])
     .clipAngle(90)
-    .precision(0.1); // 0.3
+    .precision(0.3); // 0.3
 
   // path variable
   var path = d3.geo.path()
@@ -41,15 +44,18 @@ var draw = function() {
     .datum({type: "Sphere"})
     .attr("class", "sphere")
     .attr("d", path)
-    .attr("fill", "#eee");
+    .attr("fill", "#eee")
+    .attr("d", path);
 
   g.append("use")
       .attr("class", "stroke")
-      .attr("xlink:href", "#sphere");
+      .attr("xlink:href", "#sphere")
+      .attr("d", path);
 
   g.append("use")
       .attr("class", "fill")
-      .attr("xlink:href", "#sphere");
+      .attr("xlink:href", "#sphere")
+      .attr("d", path);
 
   g.append("path")
       .datum(graticule)
@@ -59,12 +65,12 @@ var draw = function() {
   d3.json("../assets/world-50m.json", function(error, world) {
     if (error) throw error;
 
-    g.insert("path", ".graticule")
+    g.append("path", ".graticule")
         .datum(topojson.feature(world, world.objects.land))
         .attr("class", "land")
         .attr("d", path);
 
-    g.insert("path", ".graticule")
+    g.append("path", ".graticule")
         .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
         .attr("class", "boundary")
         .attr("d", path);
@@ -87,13 +93,31 @@ var draw = function() {
       cy: xy[1],
       r: calculate(transaction.amount)
     })
+    .attr("d", path)
     .attr("fill", "#ffba00")
-    .attr("fill-opacity", 0.6)
+    .attr("fill-opacity", 0.8)
     .transition()
-    .duration(3000)
+    .duration(2000)
     .style("fill-opacity", 0)
     .remove();
 
+    var feature = svg.selectAll("path");
+
+    // ROTATION
+    var sens = 0.25;
+    feature.call(d3.behavior.drag()
+      .origin(function() { var r = projection.rotate(); return {x: r[0] / sens, y: -r[1] / sens}; })
+      .on("drag", function() {
+        var λ = d3.event.x * sens,
+        φ = -d3.event.y * sens,
+        rotate = projection.rotate();
+        //Restriction for rotating upside-down
+        φ = φ > 30 ? 30 :
+        φ < -30 ? -30 :
+        φ;
+        projection.rotate([λ, φ]);
+        feature.attr("d", path);
+      }))
   });
 
   // hackish approach to get bl.ocks.org to display individual height
