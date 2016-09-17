@@ -33,10 +33,42 @@ body {
   padding: 50px;
 }*/
 
+.main-map {
+  background-color: white;
+}
 
 svg {
   font: 10px sans-serif;
 }
+
+/*Map begin*/
+.stroke {
+  fill: none;
+  stroke: #000;
+  stroke-width: 3px;
+}
+
+.fill {
+  fill: #fff;
+}
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+
+.land {
+  fill: #eee;
+}
+
+.boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+/*Map end*/
 
 .axis path,
 .axis line {
